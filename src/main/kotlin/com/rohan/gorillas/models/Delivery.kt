@@ -15,5 +15,5 @@ data class Delivery (
     val quantity: Int,
     @Column("expecteddate") val expectedDate: String,
     @Column("warehouse") val expectedWarehouse: String,
-    @GraphQLIgnore val isdelivered : Boolean
+    @GraphQLIgnore val isreceived : Boolean
     )

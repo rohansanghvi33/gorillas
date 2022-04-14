@@ -1,5 +1,6 @@
 package com.rohan.gorillas.service
 
+import com.rohan.gorillas.exception.NoSuchDeliveryException
 import com.rohan.gorillas.models.Delivery
 import com.rohan.gorillas.repository.DeliveryRepository
 import kotlinx.coroutines.reactive.awaitFirst
@@ -23,8 +24,8 @@ class DeliveryService(private val deliveryRepository: DeliveryRepository) {
             return deliveryRepository.save(updatedDelivery).awaitFirstOrNull()
         }
         else
-            return null
+            throw NoSuchDeliveryException("Delivery with deliveryId : $deliveryId was not found")
     }
 
-    suspend fun getPendingDeliveries() : List<Delivery> = deliveryRepository.findAll().filter { !it.isdelivered }.collectList().awaitFirst()
+    suspend fun getPendingDeliveries() : List<Delivery> = deliveryRepository.findAll().filter { !it.isreceived }.collectList().awaitFirst()
 }

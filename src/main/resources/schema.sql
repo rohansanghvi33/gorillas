@@ -6,5 +6,5 @@ CREATE TABLE IF NOT EXISTS deliveries
     quantity int not null,
     expecteddate varchar (255) not null,
     warehouse varchar (255) not null,
-    isdelivered boolean not null default false
+    isreceived boolean not null default false
 );
