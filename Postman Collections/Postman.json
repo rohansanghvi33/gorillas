@@ -1,0 +1,78 @@
+{
+  "info": {
+    "_postman_id": "5e17ff3e-48ca-4465-83c7-ac42d9142d7f",
+    "name": "Gorillas",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get all Deliveries",
+      "_postman_id": "3069cdec-79ee-418f-a3d7-49ab0ed7916b",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "query{\n  getAllDeliveries{\n    deliveryId\n    product\n    supplier\n    quantity\n    expectedDate\n    expectedWarehouse\n  }\n}",
+            "variables": ""
+          },
+          "options": {
+            "graphql": {}
+          }
+        },
+        "url": "localhost:8080/graphql"
+      },
+      "response": []
+    },
+    {
+      "name": "Get Pending deliveries",
+      "_postman_id": "d6044939-893e-4846-a42d-1464f96b3aa0",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "query{\n  getPendingDeliveries{\n    deliveryId\n    product\n    supplier\n    quantity\n    expectedDate\n    expectedWarehouse\n  }\n}",
+            "variables": ""
+          },
+          "options": {
+            "graphql": {}
+          }
+        },
+        "url": "localhost:8080/graphql"
+      },
+      "response": []
+    },
+    {
+      "name": "Receive a delivery",
+      "_postman_id": "980b4b94-2748-4704-b795-f08c544c03c0",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "mutation{\n  receiveDelivery(deliveryId : \"102\"){\n    deliveryId\n    product\n    supplier\n    quantity\n    expectedDate\n    expectedWarehouse\n  }\n}",
+            "variables": ""
+          },
+          "options": {
+            "graphql": {}
+          }
+        },
+        "url": "localhost:8080/graphql"
+      },
+      "response": []
+    }
+  ]
+}
